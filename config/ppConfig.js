@@ -12,8 +12,13 @@ passport.serializeUser((user, cb)=>{
 
 // passport "deserializeUser" is going to take the id and look that
 passport.deserializeUser((id, cb) =>{
-    cb(null, id)
-    .catch(cb());
+    // cb(null, id)
+    // .catch(cb);
+
+    db.user.findPk(id)
+    .then(user =>{
+        cb(null, user)
+    }).catch(cb);
 });
 
 passport.use(new localStrategy({
@@ -30,7 +35,7 @@ passport.use(new localStrategy({
             cb(null, user);
         }
     })
-    .catch(cb());
+    .catch(cb);
 }
 ));
 
