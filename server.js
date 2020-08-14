@@ -43,7 +43,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.render('index', { alerts: req.flash() });
+  res.render('index', { alerts: req.locals.alerts });
 });
 
 
