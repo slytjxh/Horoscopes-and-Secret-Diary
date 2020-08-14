@@ -15,7 +15,7 @@ passport.deserializeUser((id, cb) =>{
     // cb(null, id)
     // .catch(cb);
 
-    db.user.findPk(id)
+    db.user.findByPk(id)
     .then(user =>{
         cb(null, user)
     }).catch(cb);
