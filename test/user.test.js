@@ -80,7 +80,7 @@ describe('User instance methods', function() {
         if (user.validPassword('password')) {
           done();
         } else {
-          done(user);
+          done(!user);
         }
       }).catch(function(error) {
         done(error);
@@ -106,7 +106,7 @@ describe('User instance methods', function() {
         if (user.toJSON().password === undefined) {
           done();
         } else {
-          done(user);
+          done(!user);
         }
       }).catch(function(error) {
         done(error);

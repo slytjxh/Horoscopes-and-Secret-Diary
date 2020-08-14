@@ -35,7 +35,7 @@ describe('Auth Controller', function() {
       .send({
         email: 'new',
         name: 'Brian',
-        password: 'p'
+        password: 'password'
       })
       .expect('Location', '/auth/signup')
       .expect(302, done);
