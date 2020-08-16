@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const moment = require('moment');
 const aztroJs = require('aztro-js');
+const axios = require('axios');
 
 let API_KEY = process.env.API_KEY;
 
@@ -50,6 +51,14 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
+  let aztro = module.exports = {}
+  aztro.getTodaysHoroscope = function(sign, callback, property) {
+    aztro.getHoroscope(sign, 'today', function(res) {
+      return callback(res)
+    }, property)
+  }
+
+
   res.render('index', { alerts: res.locals.alerts });
 });
 

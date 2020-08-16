@@ -1,3 +1,15 @@
 <h2>Profile Page</h2>
 
-<h3>Welcome to your PROFILE</h3>
+<h3>Welcome to your SECRET DIARY</h3>
+
+
+<% newQuotes.forEach(new =>{ %> 
+    <h2> <%= new.title %> </h2>
+    <%= new.quote%>  alt="<%=new.author %>">
+<% }) %>
+
+<% diaries.forEach(diary =>{ %> 
+    <h2> <%= diary.title %> </h2>
+    <%= diary.content%>  alt="<%=diary.content %>">
+<% }) %>
+

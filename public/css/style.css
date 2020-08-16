@@ -1,13 +1,15 @@
+body {
+  background-size: 100rem;
+  background-image: url(/assets/img/background.jpg);
+}
+
 main {
-  height: 80vh;
-}
-
-.home {
+  height: 180vh;
   margin: auto;
-  width: 300px;
-  align-content: center;
+  width: max-content;
+  -webkit-box-direction: normal;
+  
 }
 
-h1 {
-  color: chartreuse;
-}
+
+
