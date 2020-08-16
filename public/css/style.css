@@ -1,7 +1,11 @@
-nav ul li {
-  text-decoration: none;
-  display: inline-block;
-  margin-right: .3em;
+main {
+  height: 80vh;
+}
+
+.home {
+  margin: auto;
+  width: 300px;
+  align-content: center;
 }
 
 h1 {

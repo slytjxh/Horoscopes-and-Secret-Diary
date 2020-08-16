@@ -12,7 +12,8 @@ describe('Creating a User', function() {
     db.user.create({
       email: 'test@test.co',
       name: 'Muttbuncher',
-      password: 'password'
+      password: 'password',
+      birthday: 3/11/1999
     }).then(function() {
       done();
     }).catch(function(error) {
@@ -24,7 +25,8 @@ describe('Creating a User', function() {
     db.user.create({
       email: 'test',
       name: 'Brian',
-      password: 'password'
+      password: 'password',
+      birthday: 3/11/1999
     }).then(function(newUser) {
       done(newUser);
     }).catch(function(error) {
@@ -36,7 +38,8 @@ describe('Creating a User', function() {
     db.user.create({
       email: 'test@test.co',
       name: '',
-      password: 'password'
+      password: 'password',
+      birthday: 3/11/1999
     }).then(function(newUser) {
       done(newUser);
     }).catch(function(error) {
@@ -48,7 +51,8 @@ describe('Creating a User', function() {
     db.user.create({
       email: 'test@test.co',
       name: 'Brian',
-      password: 'short'
+      password: 'short',
+      birthday: 3/11/1999
     }).then(function(newUser) {
       done(newUser);
     }).catch(function(error) {
@@ -60,7 +64,8 @@ describe('Creating a User', function() {
     db.user.create({
       email: 'test@test.co',
       name: 'Muttbuncher',
-      password: 'password'
+      password: 'password',
+      birthday: 3/11/1999
     }).then(function(newUser) {
       if (newUser.password === 'password') {
         done(newUser);

@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user.hasMany(models.comment)
     }
   };
   user.init({
@@ -40,6 +41,9 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be between 8 and 99 character'
         }
       }
+    },
+    birthday: {
+      type: DataTypes.DATE
     }
   }, {
     sequelize,

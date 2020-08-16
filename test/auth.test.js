@@ -2,6 +2,7 @@ var expect = require('chai').expect;
 var request = require('supertest');
 var app = require('../server');
 var db = require('../models');
+var moment = require('moment');
 
 before(function(done) {
   db.sequelize.sync({ force: true }).then(function() {
@@ -23,7 +24,8 @@ describe('Auth Controller', function() {
       .send({
         email: 'test@butts.co',
         name: 'Mike Schull',
-        password: '123123123'
+        password: '123123123',
+        birthday: 3/11/1999
       })
       .expect('Location', '/')
       .expect(302, done);
@@ -35,7 +37,8 @@ describe('Auth Controller', function() {
       .send({
         email: 'new',
         name: 'Brian',
-        password: 'password'
+        password: 'password',
+        birthday: 3/11/1999
       })
       .expect('Location', '/auth/signup')
       .expect(302, done);
@@ -56,6 +59,7 @@ describe('Auth Controller', function() {
       .send({
         email: 'test@butts.co',
         password: '123123123'
+        
       })
       .expect('Location', '/')
       .expect(302, done);
@@ -67,6 +71,7 @@ describe('Auth Controller', function() {
       .send({
         email: 'new@new.co',
         password: 'p'
+    
       })
       .expect('Location', '/auth/login')
       .expect(302, done);

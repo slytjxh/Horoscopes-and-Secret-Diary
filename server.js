@@ -6,6 +6,12 @@ const session = require('express-session');
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const passport = require('./config/ppConfig');
 const flash = require('connect-flash');
+const methodOverride = require('method-override');
+const moment = require('moment');
+const aztroJs = require('aztro-js');
+
+let API_KEY = process.env.API_KEY;
+
 
 // require the authorization middleware at the top of the page
 const isLoggedIn = require('./middleware/isLoggedIn');
@@ -16,6 +22,7 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+app.use(methodOverride('_method'));
 
 //secret: what we actually giving the user to use our site
 //resave: save the session even if it's modified,make this false
@@ -51,12 +58,6 @@ app.get('/', (req, res) => {
 app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
-
-
-
-// app.get('/profile', (req, res) => {
-//   res.render('profile');
-// });
 
 app.use('/auth', require('./routes/auth'));
 

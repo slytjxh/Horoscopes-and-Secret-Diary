@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "authapp_development",
+    "database": "horoscopes_p2",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "authapp_test",
+    "database": "horoscopes_p2",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "authapp_production",
+    "database": "horoscopes_p2",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
