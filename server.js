@@ -3,14 +3,14 @@ const express = require('express');
 const layouts = require('express-ejs-layouts');
 const app = express();
 const session = require('express-session');
-const SECRET_SESSION = process.env.SECRET_SESSION;
+const SECRET_SESSION = process.env.SECRET_SESSION || "horoscope";
 const passport = require('./config/ppConfig');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const moment = require('moment');
 const aztroJs = require('aztro-js');
 const axios = require('axios');
-
+const horos = ["capricorn","aquarius","pisces","aries","taurus","gemini","cancer","leo","virgo","libra","scorpio","sagittarius"]
 let API_KEY = process.env.API_KEY;
 
 
@@ -51,18 +51,32 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  let aztro = module.exports = {}
-  aztro.getTodaysHoroscope = function(sign, callback, property) {
-    aztro.getHoroscope(sign, 'today', function(res) {
-      return callback(res)
-    }, property)
+  var horocopes = {};
+  for(i in horos){
+    const horo = horos[i];
+    aztroJs.getTodaysHoroscope(horo, function(cope) {
+      //console.log(cope)
+      horocopes[horo] = cope;
+      if(Object.keys(horocopes).length == horos.length){
+        res.render('index', { alerts: res.locals.alerts,horocopes:horocopes,horos:horos});
+      }
+    })
   }
-
-
-  res.render('index', { alerts: res.locals.alerts });
 });
 
-
+app.get('/quote', (req, res) => {
+  var horo = req.query.horo;
+  axios.get('https://zenquotes.io/api/random')
+    .then((response)=>{
+        console.log(response);
+        
+        res.render('quote', {data:response.data[0]})
+    })
+    .catch(err =>{
+        console.log('error',err)
+    })
+  
+});
 
 app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');

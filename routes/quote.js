@@ -12,7 +12,7 @@ router.get('/', (req,res)=>{
             a: author
         }
     }
-    axios.get('https://zenquotes.io/api//api/random', result)
+    axios.get('https://zenquotes.io/api/random', result)
     .then((response)=>{
         res.render('quote', {quote:quote, author:author})
     })

@@ -1,223 +1,27 @@
-<h2>Homepage</h2>
-
-<div class="row">
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/capricorn.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Capricorn<i class="material-icons right">Details</i></span>
-        <p>Dec 22 - Jan 20</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Capricorn<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="../views/quote.ejs">Secret of the day</a></p>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h2>Homepage</h2>
     </div>
-
   </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/aquarius.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Aquarius<i class="material-icons right">Details</i></span>
-        <p>Jan 21 - Feb 19</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Aquarius<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/pisces.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Pisces<i class="material-icons right">Details</i></span>
-        <p>Feb 20 - Mar 20</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Pisces<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
+  <div class="row equal-col">
+    <% horos.forEach(function(entry) {%>
+    <div class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="/assets/img/<%=entry%>.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4" style="text-transform: capitalize;"><%=entry%><i class="material-icons right">Details</i></span>
+          <p><%=horocopes[entry].date_range%></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4" style="text-transform: capitalize;"><%=entry%><i class="material-icons right">close</i></span>
+          <p><%=horocopes[entry].description%></p>
+          <p><a href="/quote?horo=<%=entry%>">Secret of the day</a></p>
+        </div>
       </div>
     </div>
-  
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/aries.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Aries<i class="material-icons right">Details</i></span>
-        <p>Mar 21 - Apr 20</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Aries<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/taurus.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Taurus<i class="material-icons right">Details</i></span>
-        <p>Apr 21 - May 21</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Taurus<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/gemini.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Gemini<i class="material-icons right">Details</i></span>
-        <p>May 22 - June 21</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Gemini<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/cancer.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Cancer<i class="material-icons right">Details</i></span>
-        <p>June 22 - Jul 22</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Cancer<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/leo.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Leo<i class="material-icons right">Details</i></span>
-        <p>Jul 23 - Aug 22</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Leo<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/virgo.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Virgo<i class="material-icons right">Details</i></span>
-        <p>Aug 23 - Sept 22</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Virgo<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/libra.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Libra<i class="material-icons right">Details</i></span>
-        <p>Sept 23 - Oct 22</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Libra<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/scorpio.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Scorpio<i class="material-icons right">Details</i></span>
-        <p>Oct 23 - Nov 21</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Scorpio<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
-  </div>
-
-  <div class="col s12 m6 l3">
-    <div class="card" style="width: 250px;height: 250px;">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="/assets/img/sagittarius.jpg" style="width: 150px;height: 150px;">
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">Sagittarius<i class="material-icons right">Details</i></span>
-        <p>Nov 22 - Dec 21</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Sagittarius<i class="material-icons right">close</i></span>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <p><a href="#">Secret of the day</a></p>
-      </div>
-    </div>
-  
+    <%});%>
   </div>
 </div>

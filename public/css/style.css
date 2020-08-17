@@ -4,12 +4,11 @@ body {
 }
 
 main {
-  height: 180vh;
   margin: auto;
   width: max-content;
   -webkit-box-direction: normal;
-  
 }
-
-
-
+.equal-col {
+  display: flex;
+  flex-wrap: wrap;
+}

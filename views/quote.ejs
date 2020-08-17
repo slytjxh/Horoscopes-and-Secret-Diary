@@ -1,8 +1,14 @@
-<p><%= data.quote  %></p>
-<p><%= data.author %></p>
-
-<form method="POST" action="/quote">
-    <input type="hidden" name="quote" value="<%= data.q%>" >
-    <input type="hidden" name="author" value="<% data.a %> ">
-    <input type="submit" value="Add to Diary" >
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <p><%= data.q  %></p>
+            <p><%= data.a %></p>
+            
+            <form method="POST" action="/quote">
+                <input type="hidden" name="quote" value="<%= data.q%>" >
+                <input type="hidden" name="author" value="<% data.a %> ">
+                <input type="submit" value="Add to Diary" >
+            </form>
+        </div>
+    </div>
+</div>
